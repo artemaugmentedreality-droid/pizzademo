@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Rasca y Gana - Pizza Tutti</title>
-    <link rel="icon" type="image/webp" href="favicon.webp">
+    <link rel="icon" type="image/png" href="favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
 
     <style>
@@ -15,7 +15,6 @@
 
         body { 
             margin: 0; padding: 0; 
-            /* Nombre exacto del archivo de fondo con espacios y paréntesis */
             background: var(--bg-dark) url('Fondo-01 (Copy).webp') center center fixed;
             background-size: cover;
             font-family: 'Montserrat', sans-serif; 
@@ -33,7 +32,7 @@
         }
         
         .header-logo img { 
-            width: 180px; /* Ajustado para que no ocupe tanto espacio */
+            width: 180px; 
             height: auto;
         }
 
@@ -104,7 +103,6 @@
             text-transform: uppercase;
         }
 
-        /* Modal y Overlay */
         .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 1000; flex-direction: column; justify-content: center; align-items: center; }
         .modal { background: #fff; color: #000; padding: 30px 20px; border-radius: 25px; width: 80%; max-width: 320px; text-align: center; }
         .premio-final-img { width: 120px; border-radius: 10px; margin-bottom: 15px; }
@@ -113,7 +111,7 @@
 <body>
 
     <div class="header-logo">
-        <img src="logotipo.webp" alt="Pizza Tutti">
+        <img src="logotipo.png" alt="Pizza Tutti">
     </div>
 
     <div class="container">
@@ -142,8 +140,6 @@
     </div>
 
     <script>
-        // Definición de premios usando tus archivos exactos
-        // Para el archivo 10%1.webp usamos el escape %25 para que el navegador lo encuentre
         const PREMIOS_DATA = [
             { id: '2x1', nombre: '2x1 en Pizzas Martes', base: '2x1-' },
             { id: '10por', nombre: '10% de Descuento', base: '10%25' },
@@ -162,7 +158,6 @@
             const grid = document.getElementById('grid-principal');
             ganadorActual = PREMIOS_DATA[Math.floor(Math.random() * PREMIOS_DATA.length)];
             
-            // Creamos el mazo con 3 del ganador y el resto aleatorios
             let mazo = [
                 {...ganadorActual, img: `${ganadorActual.base}1.webp`},
                 {...ganadorActual, img: `${ganadorActual.base}2.webp`},
@@ -172,7 +167,6 @@
             let otros = PREMIOS_DATA.filter(p => p.id !== ganadorActual.id);
             otros.sort(() => 0.5 - Math.random());
 
-            // Llenamos con parejas de otros premios para que haya variedad
             for(let i=0; i<3; i++) {
                 mazo.push({ ...otros[i], img: `${otros[i].base}1.webp` });
                 mazo.push({ ...otros[i], img: `${otros[i].base}2.webp` });
@@ -193,7 +187,7 @@
             const canvas = document.getElementById(`canvas${i}`);
             const ctx = canvas.getContext('2d');
             const imgTapa = new Image();
-            imgTapa.src = 'tapa.webp'; // Tu archivo de capa superior
+            imgTapa.src = 'tapa.webp';
 
             imgTapa.onload = () => {
                 canvas.width = canvas.offsetWidth;
